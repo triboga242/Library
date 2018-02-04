@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Random;
 
 import models.Book;
@@ -21,9 +20,7 @@ public class FillDB {
 		int aux = int_aleatorio(100, 500);
 		for (int i = 0; i < aux; i++) {
 			Calendar cal =aleDate();
-			Date date=(Date) cal.getTime();
 			cal.add(Calendar.DAY_OF_YEAR, + int_aleatorio(1, 30));
-			Date date2=(Date) cal.getTime();
 			int day=int_aleatorio(1, 31);
 			int month = int_aleatorio(1, 12);
 			int year = int_aleatorio(1999, 2018);
@@ -56,7 +53,6 @@ public class FillDB {
 	public static Calendar aleDate() {
 		Calendar date;
 
-		int number = 0;
 		Random aleatorio;
 		aleatorio = new Random();
 
