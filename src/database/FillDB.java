@@ -21,7 +21,7 @@ public class FillDB {
 		for (int i = 0; i < aux; i++) {
 			Calendar cal =aleDate();
 			cal.add(Calendar.DAY_OF_YEAR, + int_aleatorio(1, 30));
-			int day=int_aleatorio(1, 31);
+			int day=int_aleatorio(1, 30);
 			int month = int_aleatorio(1, 12);
 			int year = int_aleatorio(1999, 2018);
 			String fecha = year + "-" + month + "-" + day;
@@ -57,7 +57,7 @@ public class FillDB {
 		aleatorio = new Random();
 
 		date = Calendar.getInstance();
-		date.set(aleatorio.nextInt(10) + 2014, aleatorio.nextInt(12) + 1, aleatorio.nextInt(30) + 1);
+		date.set(aleatorio.nextInt(10) + 2014, aleatorio.nextInt(12) + 1, aleatorio.nextInt(29) + 1);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMMM/yyyy");
 		System.out.println("La fecha vale " + sdf.format(date.getTime()));
 
@@ -127,5 +127,15 @@ public class FillDB {
 		int valorEntero = (int) Math.floor(Math.random() * (N - M + 1) + M);
 
 		return valorEntero;
+	}
+	public static void truncateAll(ConectionJDBC test, ResultSet rs) {
+		System.out.println("Truncating");
+		rs = test.execSQL("TRUNCATE `library`.`Loan`;");
+		rs = test.execSQL("TRUNCATE `library`.`Catalog`;");
+		rs = test.execSQL("TRUNCATE `library`.`Library_Rel_Customer`;");
+		rs = test.execSQL("TRUNCATE `library`.`Book`;");
+		rs = test.execSQL("TRUNCATE `library`.`Customer`;");
+		rs = test.execSQL("TRUNCATE `library`.`Library`;");
+		System.out.println("Done");
 	}
 }

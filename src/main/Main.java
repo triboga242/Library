@@ -16,12 +16,12 @@ public class Main {
 		test.connect();
 		ResultSet rs = null;
 		
+//		FillDB.truncateAll(test, rs);
 //		FillDB.fillBook(test, rs);
 //		FillDB.fillCatalog(test, rs);
 //		FillDB.fillLibrary(test, rs);
 //		FillDB.fillCustomer(test, rs);
 //		FillDB.fillLoan(test, rs);
-		
 		GetDB.getLibraryFull(test, rs);
 		
 	}
